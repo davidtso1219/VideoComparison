@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+
+import argparse, os
+
+from compare import compare_videos
+
+def main():
+    parser = argparse.ArgumentParser(description='Compare videos in two directories')
+    parser.add_argument('target', nargs='?', default=f'target{os.sep}', type=str, help='a directory with videos from testing product')
+    parser.add_argument('expected', nargs='?', default=f'expected{os.sep}', type=str, help='a directory with videos recorded')
+    parser.add_argument('threshold', nargs='?', default=80, type=int, help='a default score of the similarity between videos ')
+    args = parser.parse_args()
+    compare_videos(args.target, args.expected, args.threshold)
+
+if __name__ == '__main__':
+    main()
