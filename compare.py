@@ -1,7 +1,6 @@
 import glob, os, cv2
-import numpy as np
 
-from myTypes import Frame
+from MyTypes import Frame
 from utils import find_mp4_file_in_path
 from process import process_target, process_expected
 

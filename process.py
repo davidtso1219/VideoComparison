@@ -1,8 +1,7 @@
 import cv2
-import numpy as np
 
-from myTypes import Frame
-from utils import correct_fisheye_distortion, crop_monitor
+from MyTypes import Frame
+from utils import correct_fisheye_distortion, get_monitor
 
 
 def process_target(target: Frame) -> Frame:
@@ -18,7 +17,7 @@ def process_expected(expected: Frame) -> Frame:
     expected = correct_fisheye_distortion(expected)
 
     # Step 2: Get the monitor
-    expected = crop_monitor(expected)
+    expected = get_monitor(expected)
 
     # Step 3: Gray Transform
     expected = cv2.cvtColor(expected, cv2.COLOR_BGR2GRAY)
